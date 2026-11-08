@@ -1,6 +1,6 @@
 {
   "version": "0.0.1",
   "configurations": [
-    { "name": "g6-site", "runtimeExecutable": "python", "runtimeArgs": ["-m", "http.server", "8766", "-d", "Grade 6 Math Quest – International Education Egypt"], "port": 8766 }
+    { "name": "g6-site", "runtimeExecutable": "python", "runtimeArgs": ["-m", "http.server", "8766"], "port": 8766 }
   ]
 }

@@ -1,0 +1,26 @@
+[
+ {
+  "check": "[voice en] welcome spoken once with the en voice, synced subtitles finish",
+  "ok": true
+ },
+ {
+  "check": "[voice] reactions are spoken, never overlapping (previous line cancelled first)",
+  "ok": true
+ },
+ {
+  "check": "[voice] muted -> bubble still shows, nothing spoken",
+  "ok": true
+ },
+ {
+  "check": "[voice] lesson narration active -> Malek stays silent (no overlapping audio)",
+  "ok": true
+ },
+ {
+  "check": "[voice de] welcome spoken once with the de voice, synced subtitles finish",
+  "ok": true
+ },
+ {
+  "check": "[voice ar] no Arabic voice -> nothing spoken in another language; subtitles still complete",
+  "ok": true
+ }
+]

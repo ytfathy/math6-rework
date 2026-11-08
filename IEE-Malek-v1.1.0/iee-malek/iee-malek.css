@@ -1,0 +1,193 @@
+/* IEE Malek — official International Education Egypt learning buddy.
+   Reusable styles for IEEWelcomeScreen and IEELearningBuddy.
+   Every class is prefixed `iee-m-` so it cannot clash with host apps. */
+
+:root {
+  --iee-m-blue: #1F3FB0;
+  --iee-m-gold: #F5B90F;
+  --iee-m-gold-deep: #B37F00;
+  --iee-m-teal: #14A6A0;
+  --iee-m-ink: #0E1A4F;
+  --iee-m-paper: #F9F0E7;
+  --iee-m-muted: #4A5170;
+  --iee-m-font-display: "Baloo Bhaijaan 2", "Readex Pro", "Segoe UI", Tahoma, system-ui, sans-serif;
+  --iee-m-font-body: "Readex Pro", "Segoe UI", Tahoma, system-ui, sans-serif;
+  --iee-m-spring: cubic-bezier(.34, 1.56, .64, 1);
+  /* Space the buddy needs at the bottom of the page; the module keeps it updated. */
+  --iee-m-reserve: 0px;
+}
+
+/* Host pages get room to scroll their last content clear of the buddy. */
+body.iee-m-reserve { padding-bottom: calc(var(--iee-m-reserve) + env(safe-area-inset-bottom, 0px)) !important; }
+html:has(body.iee-m-reserve) { scroll-padding-bottom: calc(var(--iee-m-reserve) + 8px); }
+
+.iee-m-sr { position: absolute !important; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+/* ---------- Shared buttons ---------- */
+.iee-m-btn {
+  min-height: 44px; min-width: 44px; padding: 0 16px; border: 0; border-radius: 999px;
+  background: #FFFFFF; color: var(--iee-m-ink); box-shadow: inset 0 0 0 1px #E3D8CA;
+  font: 500 14px/1 var(--iee-m-font-body); display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  cursor: pointer; -webkit-tap-highlight-color: transparent;
+}
+.iee-m-btn:hover { box-shadow: inset 0 0 0 2px var(--iee-m-blue); }
+.iee-m-btn:focus-visible, .iee-m-start:focus-visible, .iee-m-avatar:focus-visible, .iee-m-icon:focus-visible { outline: 3px solid var(--iee-m-gold); outline-offset: 3px; }
+.iee-m-btn svg, .iee-m-icon svg { width: 18px; height: 18px; flex-shrink: 0; }
+
+/* ---------- Welcome screen ---------- */
+.iee-m-welcome {
+  position: fixed; inset: 0; z-index: 2147483000; background: var(--iee-m-paper); color: var(--iee-m-ink);
+  font-family: var(--iee-m-font-body); display: grid; grid-template-rows: auto 1fr; overflow: auto;
+}
+.iee-m-welcome[hidden] { display: none; }
+.iee-m-w-top {
+  display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap;
+  padding: max(14px, env(safe-area-inset-top)) clamp(14px, 3vw, 32px) 10px;
+}
+.iee-m-w-brand { display: flex; align-items: center; gap: 12px; min-width: 0; }
+.iee-m-w-logo { width: clamp(44px, 6vw, 64px); height: clamp(44px, 6vw, 64px); object-fit: contain; flex-shrink: 0; }
+.iee-m-w-app { display: flex; flex-direction: column; min-width: 0; }
+.iee-m-w-app strong { font: 800 clamp(18px, 2.2vw, 24px)/1.1 var(--iee-m-font-display); color: var(--iee-m-blue); }
+.iee-m-w-app span { font-size: 13px; color: var(--iee-m-muted); }
+.iee-m-w-controls { display: flex; gap: 8px; flex-wrap: wrap; }
+
+.iee-m-w-stage {
+  display: grid; grid-template-columns: minmax(240px, 0.85fr) minmax(0, 1.15fr); align-items: end;
+  gap: clamp(8px, 3vw, 40px); padding: 0 clamp(16px, 4vw, 64px); min-height: 0;
+}
+.iee-m-w-hero { position: relative; align-self: stretch; display: flex; align-items: flex-end; justify-content: center; min-height: 340px; }
+.iee-m-w-arch {
+  position: absolute; left: 8%; right: 8%; top: 6%; bottom: 0; border-radius: 999px 999px 0 0;
+  background: var(--iee-m-blue); box-shadow: inset 0 0 0 6px var(--iee-m-gold);
+}
+.iee-m-w-figure { position: relative; height: min(68vh, 600px); max-width: 100%; object-fit: contain; transform-origin: 50% 100%; }
+/* Malek fills the arch frame; the arch clips him, so a video's own background never shows outside it. */
+/* The arch takes the video's proportions (832x1120) so Malek fills it; if space is short he stays whole on the same green. */
+.iee-m-w-arch { overflow: hidden; border: 6px solid var(--iee-m-gold); box-shadow: none; top: auto; left: 4%; right: 4%; aspect-ratio: 832 / 1120; max-height: 96%; }
+.iee-m-w-arch .iee-m-w-figure { position: absolute; inset: 0; width: 100%; height: 100%; max-width: none; object-fit: contain; object-position: 50% 100%; }
+/* Lip-sync video sits exactly over the still render and only shows once it is actually playing. */
+.iee-m-w-video { opacity: 0; pointer-events: none; animation: none !important; }
+.iee-m-lipsync .iee-m-w-video { opacity: 1; }
+.iee-m-lipsync .iee-m-w-figure:not(.iee-m-w-video) { opacity: 0; animation: none; }
+.iee-m-w-copy { display: flex; flex-direction: column; gap: clamp(16px, 3vh, 28px); padding: clamp(16px, 4vh, 48px) 0; align-self: center; }
+.iee-m-w-bubble {
+  position: relative; background: #FFFFFF; border-radius: 28px; padding: clamp(18px, 3vw, 30px) clamp(20px, 3vw, 34px);
+  box-shadow: 0 18px 40px rgba(14, 26, 79, .12);
+}
+.iee-m-w-bubble::before {
+  content: ""; position: absolute; top: 46%; inset-inline-start: -12px; width: 26px; height: 26px; background: #FFFFFF;
+  transform: rotate(45deg); border-radius: 4px;
+}
+.iee-m-w-speaker { display: block; font-size: 13px; letter-spacing: .12em; text-transform: uppercase; font-weight: 600; color: var(--iee-m-blue); margin-bottom: 8px; }
+.iee-m-w-line { margin: 0; font: 700 clamp(20px, 2.6vw, 34px)/1.32 var(--iee-m-font-display); min-height: 2.6em; }
+.iee-m-w-line .iee-m-word { opacity: .14; transition: opacity .18s ease; }
+.iee-m-w-line .iee-m-word.iee-m-on { opacity: 1; }
+.iee-m-w-actions { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; min-height: 76px; }
+.iee-m-start {
+  min-height: 68px; padding: 0 clamp(26px, 4vw, 44px); border: 0; border-radius: 999px; background: var(--iee-m-gold); color: var(--iee-m-ink);
+  font: 800 clamp(20px, 2.4vw, 28px)/1 var(--iee-m-font-display); letter-spacing: .02em; display: inline-flex; align-items: center; gap: 14px;
+  box-shadow: 0 7px 0 var(--iee-m-gold-deep); cursor: pointer;
+}
+.iee-m-start[hidden] { display: none; }
+.iee-m-start:active { transform: translateY(4px); box-shadow: 0 3px 0 var(--iee-m-gold-deep); }
+.iee-m-start svg { width: 26px; height: 26px; }
+[dir="rtl"] .iee-m-start svg, [dir="rtl"] .iee-m-flip { transform: scaleX(-1); }
+.iee-m-w-hint { font-size: 14px; color: var(--iee-m-muted); }
+.iee-m-linkbtn { background: none; border: 0; padding: 10px 4px; min-height: 44px; color: var(--iee-m-blue); font: 500 14px var(--iee-m-font-body); text-decoration: underline; cursor: pointer; }
+
+/* Animation states (welcome) */
+.iee-m-anim .iee-m-w-figure { animation: iee-m-rise .7s var(--iee-m-spring) both, iee-m-wave 2.4s ease-in-out .8s 2; }
+.iee-m-anim .iee-m-w-bubble { animation: iee-m-pop .45s var(--iee-m-spring) .45s both; }
+.iee-m-speaking .iee-m-w-figure { animation: iee-m-talk .5s ease-in-out infinite; }
+.iee-m-start.iee-m-show { animation: iee-m-pop .45s var(--iee-m-spring) both, iee-m-pulse 2.2s ease-in-out .6s infinite; }
+
+@media (max-width: 760px) {
+  .iee-m-w-stage { grid-template-columns: 1fr; align-items: start; }
+  .iee-m-w-hero { min-height: 0; height: 38vh; order: 0; }
+  .iee-m-w-figure { height: 38vh; }
+  .iee-m-w-copy { order: 1; padding-top: 8px; }
+  .iee-m-w-bubble::before { top: -12px; inset-inline-start: 50%; margin-inline-start: -13px; }
+  .iee-m-w-actions { justify-content: center; }
+  .iee-m-start { width: 100%; justify-content: center; }
+}
+/* Portrait tablets: stack like phones, with a big Malek on top. */
+@media (min-width: 761px) and (max-width: 1100px) and (orientation: portrait) {
+  .iee-m-w-stage { grid-template-columns: 1fr; align-items: start; }
+  .iee-m-w-hero { min-height: 0; height: 52vh; }
+  .iee-m-w-actions { justify-content: center; }
+}
+/* Stacked layouts: centre an arch that is as tall as the hero, its width set by the video's proportions. */
+@media (max-width: 760px), (min-width: 761px) and (max-width: 1100px) and (orientation: portrait) {
+  .iee-m-w-arch { top: 0; left: 50%; right: auto; height: 100%; max-height: none; transform: translateX(-50%); }
+}
+
+/* ---------- Learning buddy (floating companion) ---------- */
+.iee-m-buddy {
+  position: fixed; z-index: 2147482000; right: max(14px, env(safe-area-inset-right)); left: auto;
+  bottom: max(14px, env(safe-area-inset-bottom)); display: flex; flex-direction: column; align-items: flex-end;
+  gap: 8px; font-family: var(--iee-m-font-body); color: var(--iee-m-ink); pointer-events: none;
+  direction: ltr; /* physical layout: always anchored bottom-right; text inside follows the app language */
+}
+/* Always bottom-RIGHT, also in RTL apps (physical right + direction: ltr below). */
+.iee-m-buddy[hidden] { display: none; }
+.iee-m-buddy > * { pointer-events: auto; }
+.iee-m-bubble {
+  max-width: min(260px, calc(100vw - 120px)); padding: 12px 16px; border-radius: 18px 18px 6px 18px; background: #FFFFFF;
+  box-shadow: 0 12px 28px rgba(14, 26, 79, .18); font: 700 17px/1.3 var(--iee-m-font-display); color: var(--iee-m-ink);
+}
+.iee-m-bubble[hidden] { display: none; }
+.iee-m-bubble.iee-m-in { animation: iee-m-pop .35s var(--iee-m-spring) both; }
+.iee-m-body { position: relative; display: flex; align-items: flex-end; justify-content: center; }
+.iee-m-figure { display: block; height: var(--iee-m-fig, 210px); width: auto; transform-origin: 50% 100%; user-select: none; -webkit-user-drag: none; }
+.iee-m-shadow { position: absolute; bottom: -4px; left: 50%; width: 70%; height: 16px; margin-left: -35%; border-radius: 50%; background: rgba(14, 26, 79, .16); }
+.iee-m-tools { position: absolute; top: 4px; right: 100%; margin-right: 6px; display: flex; flex-direction: column; gap: 6px; }
+.iee-m-icon {
+  width: 40px; height: 40px; border-radius: 50%; border: 0; background: #FFFFFF; color: var(--iee-m-ink);
+  box-shadow: 0 4px 12px rgba(14, 26, 79, .2); display: flex; align-items: center; justify-content: center; cursor: pointer; padding: 0;
+}
+.iee-m-avatar {
+  width: 68px; height: 68px; padding: 0; border-radius: 50%; border: 4px solid var(--iee-m-gold); background: var(--iee-m-paper);
+  overflow: hidden; box-shadow: 0 8px 20px rgba(14, 26, 79, .25); cursor: pointer;
+}
+.iee-m-avatar img { width: 100%; height: 100%; display: block; }
+.iee-m-avatar[hidden], .iee-m-body[hidden] { display: none; }
+
+/* Compact mode: phones, short screens, or when the full figure would cover content */
+.iee-m-buddy.iee-m-compact { flex-direction: row; align-items: flex-end; }
+.iee-m-buddy.iee-m-compact .iee-m-bubble { max-width: min(240px, calc(100vw - 110px)); font-size: 15px; }
+
+/* Reaction animations */
+.iee-m-idle .iee-m-figure, .iee-m-idle .iee-m-avatar { animation: iee-m-float 4.5s ease-in-out infinite; }
+.iee-m-r-happy .iee-m-figure, .iee-m-r-happy .iee-m-avatar { animation: iee-m-hop .45s var(--iee-m-spring) both; }
+.iee-m-r-celebrate .iee-m-figure, .iee-m-r-celebrate .iee-m-avatar { animation: iee-m-jump .85s var(--iee-m-spring) both; }
+.iee-m-r-support .iee-m-figure, .iee-m-r-support .iee-m-avatar { animation: iee-m-lean .45s ease-out both; }
+.iee-m-r-encourage .iee-m-figure, .iee-m-r-encourage .iee-m-avatar { animation: iee-m-popin .5s var(--iee-m-spring) both; }
+.iee-m-r-think .iee-m-figure, .iee-m-r-think .iee-m-avatar { animation: iee-m-tilt 1.6s ease-in-out both; }
+.iee-m-r-help .iee-m-figure, .iee-m-r-help .iee-m-avatar { animation: iee-m-tilt .8s ease-in-out both; }
+.iee-m-r-wave .iee-m-figure, .iee-m-r-wave .iee-m-avatar { animation: iee-m-wave 1.1s ease-in-out both; }
+.iee-m-enter { animation: iee-m-dock .6s var(--iee-m-spring) both; }
+
+.iee-m-confetti { position: fixed; inset: 0; pointer-events: none; z-index: 2147481999; overflow: hidden; }
+.iee-m-confetti i { position: absolute; top: -20px; width: 10px; height: 16px; border-radius: 2px; animation: iee-m-fall 1.8s linear forwards; }
+
+@keyframes iee-m-rise { from { transform: translateY(70px); opacity: 0; } to { transform: none; opacity: 1; } }
+@keyframes iee-m-wave { 0%, 100% { transform: rotate(0); } 25% { transform: rotate(-2.5deg); } 75% { transform: rotate(2deg); } }
+@keyframes iee-m-talk { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-3px) scale(1.005); } }
+@keyframes iee-m-pop { from { transform: scale(.7); opacity: 0; } to { transform: none; opacity: 1; } }
+@keyframes iee-m-pulse { 0%, 100% { box-shadow: 0 7px 0 var(--iee-m-gold-deep), 0 0 0 0 rgba(245, 185, 15, .5); } 50% { box-shadow: 0 7px 0 var(--iee-m-gold-deep), 0 0 0 14px rgba(245, 185, 15, 0); } }
+@keyframes iee-m-float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
+@keyframes iee-m-hop { 0% { transform: none; } 35% { transform: translateY(-18px) scale(1.03); } 70% { transform: scale(.98, 1.02); } 100% { transform: none; } }
+@keyframes iee-m-jump { 0% { transform: translateY(16px) scale(.92); } 45% { transform: translateY(-34px) scale(1.04); } 100% { transform: none; } }
+@keyframes iee-m-lean { from { transform: translateX(12px) rotate(2deg); opacity: .5; } to { transform: none; opacity: 1; } }
+@keyframes iee-m-popin { 0% { transform: scale(.85); } 60% { transform: scale(1.06); } 100% { transform: none; } }
+@keyframes iee-m-tilt { 0%, 100% { transform: rotate(0); } 40% { transform: rotate(-3deg); } }
+@keyframes iee-m-dock { from { transform: translateY(40px) scale(.6); opacity: 0; } to { transform: none; opacity: 1; } }
+@keyframes iee-m-fall { to { transform: translateY(110vh) rotate(540deg); } }
+
+@media (prefers-reduced-motion: reduce) {
+  .iee-m-welcome *, .iee-m-buddy, .iee-m-buddy * { animation: none !important; transition: none !important; }
+  .iee-m-w-line .iee-m-word { opacity: 1; }
+  .iee-m-confetti { display: none; }
+}
+.iee-m-reduced, .iee-m-reduced * { animation: none !important; transition: none !important; }
+.iee-m-reduced .iee-m-w-line .iee-m-word { opacity: 1; }

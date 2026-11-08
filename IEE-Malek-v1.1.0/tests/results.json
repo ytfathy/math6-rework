@@ -1,0 +1,545 @@
+{
+ "results": [
+  {
+   "check": "[desktop] welcome appears before the app; app is inert until START",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "[desktop] welcome names the app and subject (en)",
+   "ok": true,
+   "detail": "Hello, superstar! Welcome to Math Adventure! I’m Malek, your learning buddy, and I’ll be w"
+  },
+  {
+   "check": "[desktop] START hidden during welcome, shown after it (13.9s)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "[desktop] replay restarts the welcome",
+   "ok": true,
+   "detail": "words lit=0"
+  },
+  {
+   "check": "[desktop] mute button toggles and is remembered",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "[desktop] START closes welcome and opens the app",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "[desktop] Malek docked bottom-right after START",
+   "ok": true,
+   "detail": "{\"pose\": \"idle.png\", \"bubble\": \"\", \"dir\": \"ltr\", \"lang\": \"en\", \"compact\": false, \"avatarHidden\": true, \"bodyHidden\": false}"
+  },
+  {
+   "check": "[desktop] home: Malek covers no content",
+   "ok": true,
+   "detail": "{\"hits\": [], \"compact\": false, \"n\": 2}"
+  },
+  {
+   "check": "[desktop] question screen: no overlap",
+   "ok": true,
+   "detail": "{\"hits\": [], \"compact\": false, \"n\": 2}"
+  },
+  {
+   "check": "[desktop] question screen scrolled to bottom: no overlap",
+   "ok": true,
+   "detail": "{\"hits\": [], \"compact\": false, \"n\": 2}"
+  },
+  {
+   "check": "[desktop] wrong answer -> supportive pose + encouraging line",
+   "ok": true,
+   "detail": "{\"pose\": \"supportive.png\", \"bubble\": \"Try again! Don’t give up!\", \"dir\": \"ltr\", \"lang\": \"en\", \"compact\": false, \"avatarHidden\": true, \"bodyHidden\": false}"
+  },
+  {
+   "check": "[desktop] after wrong answer (bubble shown): figure covers no content",
+   "ok": true,
+   "detail": "{\"hits\": [], \"compact\": false, \"n\": 2}"
+  },
+  {
+   "check": "[desktop] correct answer -> happy pose + praise line",
+   "ok": true,
+   "detail": "{\"pose\": \"happy.png\", \"bubble\": \"Brilliant! Keep going!\", \"dir\": \"ltr\", \"lang\": \"en\", \"compact\": false, \"avatarHidden\": true, \"bodyHidden\": false}"
+  },
+  {
+   "check": "[desktop] existing scoring untouched (wrong-then-right is not first-try)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "[desktop] after correct answer: no overlap",
+   "ok": true,
+   "detail": "{\"hits\": [], \"compact\": false, \"n\": 2}"
+  },
+  {
+   "check": "[desktop] 3 correct in a row -> celebration pose + streak line",
+   "ok": true,
+   "detail": "{\"pose\": \"celebrate.png\", \"bubble\": \"3 in a row! You’re on fire!\", \"dir\": \"ltr\", \"lang\": \"en\", \"compact\": false, \"avatarHidden\": true, \"bodyHidden\": false}"
+  },
+  {
+   "check": "[desktop] halfway milestone -> proud pose + milestone line",
+   "ok": true,
+   "detail": "{\"pose\": \"proud.png\", \"bubble\": \"You’re doing amazing!\", \"dir\": \"ltr\", \"lang\": \"en\", \"compact\": false, \"avatarHidden\": true, \"bodyHidden\": false}"
+  },
+  {
+   "check": "[desktop] switching to Arabic updates Malek (RTL, Arabic bubble)",
+   "ok": true,
+   "detail": "{\"pose\": \"proud.png\", \"bubble\": \"أداؤك مذهل!\", \"dir\": \"rtl\", \"lang\": \"ar\", \"compact\": false, \"avatarHidden\": true, \"bodyHidden\": false}"
+  },
+  {
+   "check": "[desktop] Arabic RTL layout: no overlap",
+   "ok": true,
+   "detail": "{\"hits\": [], \"compact\": false, \"n\": 2}"
+  },
+  {
+   "check": "[desktop] German: wrong answer line is German",
+   "ok": true,
+   "detail": "{\"pose\": \"supportive.png\", \"bubble\": \"Fast! Probier es noch einmal.\", \"dir\": \"ltr\", \"lang\": \"de\", \"compact\": false, \"avatarHidden\": true, \"bodyHidden\": false}"
+  },
+  {
+   "check": "[desktop] minimise works and is remembered",
+   "ok": true,
+   "detail": "{\"pose\": \"happy.png\", \"bubble\": \"\", \"dir\": \"ltr\", \"lang\": \"en\", \"compact\": true, \"avatarHidden\": false, \"bodyHidden\": true}"
+  },
+  {
+   "check": "[desktop] restore brings Malek back",
+   "ok": true,
+   "detail": "{\"pose\": \"happy.png\", \"bubble\": \"\", \"dir\": \"ltr\", \"lang\": \"en\", \"compact\": false, \"avatarHidden\": true, \"bodyHidden\": false}"
+  },
+  {
+   "check": "[desktop] lesson complete -> achievement pose (trophy), line and confetti",
+   "ok": true,
+   "detail": "{\"pose\": \"achievement.png\", \"bubble\": \"Lesson complete! Amazing work!\", \"dir\": \"ltr\", \"lang\": \"en\", \"compact\": false, \"avatarHidden\": true, \"bodyHidden\": false}"
+  },
+  {
+   "check": "[desktop] results screen: no overlap",
+   "ok": true,
+   "detail": "{\"hits\": [], \"compact\": false, \"n\": 2}"
+  },
+  {
+   "check": "[desktop] leaving the finished lesson -> goodbye pose + goodbye line",
+   "ok": true,
+   "detail": "{\"pose\": \"goodbye.png\", \"bubble\": \"Bye for now, superstar!\", \"dir\": \"ltr\", \"lang\": \"en\", \"compact\": false, \"avatarHidden\": true, \"bodyHidden\": false}"
+  },
+  {
+   "check": "[desktop] goodbye pose (wider, with props): no overlap",
+   "ok": true,
+   "detail": "{\"hits\": [], \"compact\": false, \"n\": 2}"
+  },
+  {
+   "check": "[desktop] Malek stays on every screen (home again, no welcome replay)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "[desktop] no JavaScript errors",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "[tablet] welcome appears before the app; app is inert until START",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "[tablet] welcome names the app and subject (ar)",
+   "ok": true,
+   "detail": "مرحباً يا بطل! أهلاً بك في مغامرة الرياضيات! أنا مالك، رفيقك في رحلة التعلّم، وسأكون معك ف"
+  },
+  {
+   "check": "[tablet] START hidden during welcome, shown after it (11.9s)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "[tablet] replay restarts the welcome",
+   "ok": true,
+   "detail": "words lit=0"
+  },
+  {
+   "check": "[tablet] mute button toggles and is remembered",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "[tablet] START closes welcome and opens the app",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "[tablet] Malek docked bottom-right after START",
+   "ok": true,
+   "detail": "{\"pose\": \"idle.png\", \"bubble\": \"\", \"dir\": \"rtl\", \"lang\": \"ar\", \"compact\": false, \"avatarHidden\": true, \"bodyHidden\": false}"
+  },
+  {
+   "check": "[tablet] home: Malek covers no content",
+   "ok": true,
+   "detail": "{\"hits\": [], \"compact\": false, \"n\": 2}"
+  },
+  {
+   "check": "[tablet] question screen: no overlap",
+   "ok": true,
+   "detail": "{\"hits\": [], \"compact\": false, \"n\": 2}"
+  },
+  {
+   "check": "[tablet] question screen scrolled to bottom: no overlap",
+   "ok": true,
+   "detail": "{\"hits\": [], \"compact\": false, \"n\": 2}"
+  },
+  {
+   "check": "[tablet] wrong answer -> supportive pose + encouraging line",
+   "ok": true,
+   "detail": "{\"pose\": \"supportive.png\", \"bubble\": \"اقتربت! جرّب مرة أخرى.\", \"dir\": \"rtl\", \"lang\": \"ar\", \"compact\": false, \"avatarHidden\": true, \"bodyHidden\": false}"
+  },
+  {
+   "check": "[tablet] after wrong answer (bubble shown): figure covers no content",
+   "ok": true,
+   "detail": "{\"hits\": [], \"compact\": false, \"n\": 2}"
+  },
+  {
+   "check": "[tablet] correct answer -> happy pose + praise line",
+   "ok": true,
+   "detail": "{\"pose\": \"happy.png\", \"bubble\": \"ممتاز! استمر!\", \"dir\": \"rtl\", \"lang\": \"ar\", \"compact\": false, \"avatarHidden\": true, \"bodyHidden\": false}"
+  },
+  {
+   "check": "[tablet] existing scoring untouched (wrong-then-right is not first-try)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "[tablet] after correct answer: no overlap",
+   "ok": true,
+   "detail": "{\"hits\": [], \"compact\": false, \"n\": 2}"
+  },
+  {
+   "check": "[tablet] 3 correct in a row -> celebration pose + streak line",
+   "ok": true,
+   "detail": "{\"pose\": \"celebrate.png\", \"bubble\": \"3 إجابات صحيحة على التوالي! مذهل!\", \"dir\": \"rtl\", \"lang\": \"ar\", \"compact\": false, \"avatarHidden\": true, \"bodyHidden\": false}"
+  },
+  {
+   "check": "[tablet] halfway milestone -> proud pose + milestone line",
+   "ok": true,
+   "detail": "{\"pose\": \"proud.png\", \"bubble\": \"وصلت إلى منتصف الطريق! عمل رائع!\", \"dir\": \"rtl\", \"lang\": \"ar\", \"compact\": false, \"avatarHidden\": true, \"bodyHidden\": false}"
+  },
+  {
+   "check": "[tablet] minimise works and is remembered",
+   "ok": true,
+   "detail": "{\"pose\": \"happy.png\", \"bubble\": \"\", \"dir\": \"rtl\", \"lang\": \"ar\", \"compact\": true, \"avatarHidden\": false, \"bodyHidden\": true}"
+  },
+  {
+   "check": "[tablet] restore brings Malek back",
+   "ok": true,
+   "detail": "{\"pose\": \"happy.png\", \"bubble\": \"\", \"dir\": \"rtl\", \"lang\": \"ar\", \"compact\": false, \"avatarHidden\": true, \"bodyHidden\": false}"
+  },
+  {
+   "check": "[tablet] lesson complete -> achievement pose (trophy), line and confetti",
+   "ok": true,
+   "detail": "{\"pose\": \"achievement.png\", \"bubble\": \"رائع! لقد نجحت!\", \"dir\": \"rtl\", \"lang\": \"ar\", \"compact\": false, \"avatarHidden\": true, \"bodyHidden\": false}"
+  },
+  {
+   "check": "[tablet] results screen: no overlap",
+   "ok": true,
+   "detail": "{\"hits\": [], \"compact\": false, \"n\": 2}"
+  },
+  {
+   "check": "[tablet] leaving the finished lesson -> goodbye pose + goodbye line",
+   "ok": true,
+   "detail": "{\"pose\": \"goodbye.png\", \"bubble\": \"عمل رائع اليوم! أراك قريباً!\", \"dir\": \"rtl\", \"lang\": \"ar\", \"compact\": false, \"avatarHidden\": true, \"bodyHidden\": false}"
+  },
+  {
+   "check": "[tablet] goodbye pose (wider, with props): no overlap",
+   "ok": true,
+   "detail": "{\"hits\": [], \"compact\": false, \"n\": 2}"
+  },
+  {
+   "check": "[tablet] Malek stays on every screen (home again, no welcome replay)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "[tablet] no JavaScript errors",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "[mobile] welcome appears before the app; app is inert until START",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "[mobile] welcome names the app and subject (de)",
+   "ok": true,
+   "detail": "Hallo, Superstar! Willkommen bei „Mathe-Abenteuer“! Ich bin Malek, dein Lernbegleiter, und"
+  },
+  {
+   "check": "[mobile] START hidden during welcome, shown after it (9.8s)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "[mobile] replay restarts the welcome",
+   "ok": true,
+   "detail": "words lit=0"
+  },
+  {
+   "check": "[mobile] mute button toggles and is remembered",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "[mobile] START closes welcome and opens the app",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "[mobile] Malek docked bottom-right after START",
+   "ok": true,
+   "detail": "{\"pose\": \"idle.png\", \"bubble\": \"\", \"dir\": \"ltr\", \"lang\": \"de\", \"compact\": true, \"avatarHidden\": false, \"bodyHidden\": true}"
+  },
+  {
+   "check": "[mobile] home: Malek covers no content",
+   "ok": true,
+   "detail": "{\"hits\": [], \"compact\": true, \"n\": 1}"
+  },
+  {
+   "check": "[mobile] question screen: no overlap",
+   "ok": true,
+   "detail": "{\"hits\": [], \"compact\": true, \"n\": 1}"
+  },
+  {
+   "check": "[mobile] question screen scrolled to bottom: no overlap",
+   "ok": true,
+   "detail": "{\"hits\": [], \"compact\": true, \"n\": 1}"
+  },
+  {
+   "check": "[mobile] wrong answer -> supportive pose + encouraging line",
+   "ok": true,
+   "detail": "{\"pose\": \"supportive.png\", \"bubble\": \"Nicht ganz. Du schaffst das!\", \"dir\": \"ltr\", \"lang\": \"de\", \"compact\": true, \"avatarHidden\": false, \"bodyHidden\": true}"
+  },
+  {
+   "check": "[mobile] after wrong answer (bubble shown): figure covers no content",
+   "ok": true,
+   "detail": "{\"hits\": [], \"compact\": true, \"n\": 1}"
+  },
+  {
+   "check": "[mobile] correct answer -> happy pose + praise line",
+   "ok": true,
+   "detail": "{\"pose\": \"happy.png\", \"bubble\": \"Toll überlegt!\", \"dir\": \"ltr\", \"lang\": \"de\", \"compact\": true, \"avatarHidden\": false, \"bodyHidden\": true}"
+  },
+  {
+   "check": "[mobile] existing scoring untouched (wrong-then-right is not first-try)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "[mobile] after correct answer: no overlap",
+   "ok": true,
+   "detail": "{\"hits\": [], \"compact\": true, \"n\": 1}"
+  },
+  {
+   "check": "[mobile] 3 correct in a row -> celebration pose + streak line",
+   "ok": true,
+   "detail": "{\"pose\": \"celebrate.png\", \"bubble\": \"3 Treffer am Stück! Klasse!\", \"dir\": \"ltr\", \"lang\": \"de\", \"compact\": true, \"avatarHidden\": false, \"bodyHidden\": true}"
+  },
+  {
+   "check": "[mobile] halfway milestone -> proud pose + milestone line",
+   "ok": true,
+   "detail": "{\"pose\": \"proud.png\", \"bubble\": \"Du machst das großartig!\", \"dir\": \"ltr\", \"lang\": \"de\", \"compact\": true, \"avatarHidden\": false, \"bodyHidden\": true}"
+  },
+  {
+   "check": "[mobile] minimise works and is remembered",
+   "ok": true,
+   "detail": "{\"pose\": \"happy.png\", \"bubble\": \"\", \"dir\": \"ltr\", \"lang\": \"de\", \"compact\": true, \"avatarHidden\": false, \"bodyHidden\": true}"
+  },
+  {
+   "check": "[mobile] restore brings Malek back",
+   "ok": true,
+   "detail": "{\"pose\": \"happy.png\", \"bubble\": \"\", \"dir\": \"ltr\", \"lang\": \"de\", \"compact\": true, \"avatarHidden\": false, \"bodyHidden\": true}"
+  },
+  {
+   "check": "[mobile] lesson complete -> achievement pose (trophy), line and confetti",
+   "ok": true,
+   "detail": "{\"pose\": \"achievement.png\", \"bubble\": \"Lektion geschafft! Super gemacht!\", \"dir\": \"ltr\", \"lang\": \"de\", \"compact\": true, \"avatarHidden\": false, \"bodyHidden\": true}"
+  },
+  {
+   "check": "[mobile] results screen: no overlap",
+   "ok": true,
+   "detail": "{\"hits\": [], \"compact\": true, \"n\": 1}"
+  },
+  {
+   "check": "[mobile] leaving the finished lesson -> goodbye pose + goodbye line",
+   "ok": true,
+   "detail": "{\"pose\": \"goodbye.png\", \"bubble\": \"Toll gemacht heute! Bis bald!\", \"dir\": \"ltr\", \"lang\": \"de\", \"compact\": true, \"avatarHidden\": false, \"bodyHidden\": true}"
+  },
+  {
+   "check": "[mobile] goodbye pose (wider, with props): no overlap",
+   "ok": true,
+   "detail": "{\"hits\": [], \"compact\": true, \"n\": 1}"
+  },
+  {
+   "check": "[mobile] Malek stays on every screen (home again, no welcome replay)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "[mobile] no JavaScript errors",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "[laptop-short] welcome appears before the app; app is inert until START",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "[laptop-short] welcome names the app and subject (en)",
+   "ok": true,
+   "detail": "Hello, superstar! Welcome to Math Adventure! I’m Malek, your learning buddy, and I’ll be w"
+  },
+  {
+   "check": "[laptop-short] START hidden during welcome, shown after it (13.9s)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "[laptop-short] replay restarts the welcome",
+   "ok": true,
+   "detail": "words lit=0"
+  },
+  {
+   "check": "[laptop-short] mute button toggles and is remembered",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "[laptop-short] START closes welcome and opens the app",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "[laptop-short] Malek docked bottom-right after START",
+   "ok": true,
+   "detail": "{\"pose\": \"idle.png\", \"bubble\": \"\", \"dir\": \"ltr\", \"lang\": \"en\", \"compact\": false, \"avatarHidden\": true, \"bodyHidden\": false}"
+  },
+  {
+   "check": "[laptop-short] home: Malek covers no content",
+   "ok": true,
+   "detail": "{\"hits\": [], \"compact\": false, \"n\": 2}"
+  },
+  {
+   "check": "[laptop-short] question screen: no overlap",
+   "ok": true,
+   "detail": "{\"hits\": [], \"compact\": false, \"n\": 2}"
+  },
+  {
+   "check": "[laptop-short] question screen scrolled to bottom: no overlap",
+   "ok": true,
+   "detail": "{\"hits\": [], \"compact\": false, \"n\": 2}"
+  },
+  {
+   "check": "[laptop-short] wrong answer -> supportive pose + encouraging line",
+   "ok": true,
+   "detail": "{\"pose\": \"supportive.png\", \"bubble\": \"Not quite. You can do it!\", \"dir\": \"ltr\", \"lang\": \"en\", \"compact\": true, \"avatarHidden\": false, \"bodyHidden\": true}"
+  },
+  {
+   "check": "[laptop-short] after wrong answer (bubble shown): figure covers no content",
+   "ok": true,
+   "detail": "{\"hits\": [], \"compact\": true, \"n\": 1}"
+  },
+  {
+   "check": "[laptop-short] correct answer -> happy pose + praise line",
+   "ok": true,
+   "detail": "{\"pose\": \"happy.png\", \"bubble\": \"Yes! You got it!\", \"dir\": \"ltr\", \"lang\": \"en\", \"compact\": true, \"avatarHidden\": false, \"bodyHidden\": true}"
+  },
+  {
+   "check": "[laptop-short] existing scoring untouched (wrong-then-right is not first-try)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "[laptop-short] after correct answer: no overlap",
+   "ok": true,
+   "detail": "{\"hits\": [], \"compact\": true, \"n\": 1}"
+  },
+  {
+   "check": "[laptop-short] 3 correct in a row -> celebration pose + streak line",
+   "ok": true,
+   "detail": "{\"pose\": \"celebrate.png\", \"bubble\": \"3 in a row! You’re on fire!\", \"dir\": \"ltr\", \"lang\": \"en\", \"compact\": false, \"avatarHidden\": true, \"bodyHidden\": false}"
+  },
+  {
+   "check": "[laptop-short] halfway milestone -> proud pose + milestone line",
+   "ok": true,
+   "detail": "{\"pose\": \"proud.png\", \"bubble\": \"You’re doing amazing!\", \"dir\": \"ltr\", \"lang\": \"en\", \"compact\": false, \"avatarHidden\": true, \"bodyHidden\": false}"
+  },
+  {
+   "check": "[laptop-short] minimise works and is remembered",
+   "ok": true,
+   "detail": "{\"pose\": \"happy.png\", \"bubble\": \"\", \"dir\": \"ltr\", \"lang\": \"en\", \"compact\": true, \"avatarHidden\": false, \"bodyHidden\": true}"
+  },
+  {
+   "check": "[laptop-short] restore brings Malek back",
+   "ok": true,
+   "detail": "{\"pose\": \"happy.png\", \"bubble\": \"\", \"dir\": \"ltr\", \"lang\": \"en\", \"compact\": false, \"avatarHidden\": true, \"bodyHidden\": false}"
+  },
+  {
+   "check": "[laptop-short] lesson complete -> achievement pose (trophy), line and confetti",
+   "ok": true,
+   "detail": "{\"pose\": \"achievement.png\", \"bubble\": \"Fantastic! You did it!\", \"dir\": \"ltr\", \"lang\": \"en\", \"compact\": false, \"avatarHidden\": true, \"bodyHidden\": false}"
+  },
+  {
+   "check": "[laptop-short] results screen: no overlap",
+   "ok": true,
+   "detail": "{\"hits\": [], \"compact\": false, \"n\": 2}"
+  },
+  {
+   "check": "[laptop-short] leaving the finished lesson -> goodbye pose + goodbye line",
+   "ok": true,
+   "detail": "{\"pose\": \"goodbye.png\", \"bubble\": \"Great work today! See you soon!\", \"dir\": \"ltr\", \"lang\": \"en\", \"compact\": false, \"avatarHidden\": true, \"bodyHidden\": false}"
+  },
+  {
+   "check": "[laptop-short] goodbye pose (wider, with props): no overlap",
+   "ok": true,
+   "detail": "{\"hits\": [], \"compact\": false, \"n\": 2}"
+  },
+  {
+   "check": "[laptop-short] Malek stays on every screen (home again, no welcome replay)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "[laptop-short] no JavaScript errors",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "[reduced motion] full text + START immediately, no animation",
+   "ok": true,
+   "detail": "animation=none"
+  },
+  {
+   "check": "[returning visit] shorter welcome + option to play the full one; still requires START",
+   "ok": true,
+   "detail": "Welcome back to Math Adventure, superstar! Ready for more fractions?"
+  },
+  {
+   "check": "[inactivity] 12 s on a question -> thinking reaction (thought-bubble pose)",
+   "ok": true,
+   "detail": "{\"pose\": \"thinking.png\", \"bubble\": \"Take your time. Think it through.\", \"dir\": \"ltr\", \"lang\": \"en\", \"compact\": false, \"avatarHidden\": true, \"bodyHidden\": false}"
+  },
+  {
+   "check": "[inactivity] 30 s with no activity -> \"I'm here to help you!\" style offer",
+   "ok": true,
+   "detail": "[\"think\", \"help\"]"
+  },
+  {
+   "check": "[help] Hint button -> help line",
+   "ok": true,
+   "detail": "{\"pose\": \"curious.png\", \"bubble\": \"Need a little help? I\\u2019m here!\", \"dir\": \"ltr\", \"lang\": \"en\", \"compact\": false, \"avatarHidden\": true, \"bodyHidden\": false}"
+  }
+ ],
+ "voices": []
+}

@@ -1,0 +1,78 @@
+/* Pilot app: Math Adventure · Fractions (International Education Egypt) */
+:root {
+  --blue: #1F3FB0; --gold: #F5B90F; --gold-deep: #B37F00; --teal: #14A6A0; --teal-deep: #0E7C77;
+  --ink: #0E1A4F; --paper: #F9F0E7; --line: #E3D8CA; --muted: #4A5170;
+  --display: "Baloo Bhaijaan 2", "Readex Pro", "Segoe UI", Tahoma, system-ui, sans-serif;
+  --body: "Readex Pro", "Segoe UI", Tahoma, system-ui, sans-serif;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body { background: var(--paper); color: var(--ink); font-family: var(--body); -webkit-text-size-adjust: 100%; }
+button { font-family: inherit; }
+button:focus-visible, a:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; }
+
+.topbar {
+  position: sticky; top: 0; z-index: 10; display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap;
+  padding: max(10px, env(safe-area-inset-top)) clamp(14px, 3vw, 28px) 10px; background: #FFFFFF; box-shadow: 0 1px 0 #E9DFD2;
+}
+.brand { display: flex; align-items: center; gap: 12px; min-width: 0; }
+.brand-logo { width: 48px; height: 48px; object-fit: contain; flex-shrink: 0; }
+.brand-text { display: flex; flex-direction: column; min-width: 0; }
+.brand-text strong { font: 800 20px/1.1 var(--display); color: var(--blue); }
+.brand-text span { font-size: 13px; color: var(--muted); }
+.top-actions { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.stars { display: inline-flex; align-items: center; gap: 6px; padding: 8px 14px; border-radius: 999px; background: var(--ink); color: var(--gold); font-weight: 600; font-size: 14px; }
+.stars svg { width: 16px; height: 16px; }
+.lang { display: flex; padding: 3px; border-radius: 999px; background: var(--paper); box-shadow: inset 0 0 0 1px var(--line); }
+.lang button { min-height: 40px; min-width: 52px; padding: 0 12px; border: 0; border-radius: 999px; background: transparent; color: var(--blue); font-weight: 600; font-size: 14px; cursor: pointer; }
+.lang button[aria-pressed="true"] { background: var(--blue); color: #FFFFFF; }
+
+.screen { max-width: 980px; margin: 0 auto; padding: clamp(18px, 4vw, 40px) clamp(16px, 4vw, 40px) 40px; outline: none; }
+.eyebrow { font-size: 13px; letter-spacing: .12em; text-transform: uppercase; font-weight: 600; color: var(--blue); margin: 0 0 6px; }
+h1 { margin: 0 0 18px; font: 800 clamp(26px, 4vw, 40px)/1.15 var(--display); }
+
+/* Home */
+.lesson-card { display: grid; grid-template-columns: 120px minmax(0, 1fr) auto; gap: 22px; align-items: center; padding: 22px; border-radius: 24px; background: #FFFFFF; box-shadow: 0 10px 28px rgba(14, 26, 79, .07); }
+.lesson-card .pie { width: 120px; height: 120px; }
+.lesson-card h2 { margin: 0 0 6px; font: 700 24px/1.2 var(--display); }
+.lesson-card p { margin: 0; color: var(--muted); }
+.progress { height: 10px; border-radius: 999px; background: #EFE6DA; overflow: hidden; margin-top: 12px; }
+.progress > i { display: block; height: 100%; border-radius: 999px; background: var(--teal); transition: width .4s ease; }
+.btn { min-height: 52px; padding: 0 26px; border: 0; border-radius: 999px; background: var(--blue); color: #FFFFFF; font-weight: 600; font-size: 17px; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; gap: 10px; text-decoration: none; }
+.btn.gold { background: var(--gold); color: var(--ink); box-shadow: 0 6px 0 var(--gold-deep); font: 800 20px/1 var(--display); min-height: 58px; }
+.btn.ghost { background: #FFFFFF; color: var(--ink); box-shadow: inset 0 0 0 2px var(--line); }
+@media (max-width: 640px) { .lesson-card { grid-template-columns: 80px minmax(0, 1fr); } .lesson-card .pie { width: 80px; height: 80px; } .lesson-card .btn { grid-column: 1 / -1; } }
+
+/* Quiz */
+.qhead { display: flex; align-items: center; gap: 14px; margin-bottom: 18px; }
+.qhead .progress { flex-grow: 1; margin: 0; height: 12px; }
+.qhead span { font-weight: 600; font-size: 14px; white-space: nowrap; }
+.qbody { display: grid; grid-template-columns: minmax(220px, 300px) minmax(0, 1fr); gap: clamp(18px, 4vw, 40px); align-items: center; }
+.visual { border-radius: 26px; background: #FFFFFF; padding: 18px; display: flex; align-items: center; justify-content: center; min-height: 240px; box-shadow: 0 10px 26px rgba(14, 26, 79, .07); }
+.visual svg { width: 100%; max-width: 260px; height: auto; }
+.options { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+.opt { min-height: 92px; border-radius: 20px; border: 0; background: #FFFFFF; box-shadow: 0 5px 0 var(--line); color: var(--ink); font: 800 clamp(26px, 4vw, 40px)/1 var(--display); cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 12px; padding: 8px 12px; }
+.opt.word { font-size: clamp(18px, 2.4vw, 24px); }
+.opt:hover:not(:disabled) { box-shadow: 0 5px 0 var(--line), inset 0 0 0 2px var(--blue); }
+.opt.right { background: var(--teal); color: #FFFFFF; box-shadow: 0 0 0 4px var(--teal-deep); }
+.opt.wrong { background: #FFF6DD; box-shadow: 0 0 0 3px #E2A200; }
+.opt:disabled { cursor: default; }
+.opt svg { width: 28px; height: 28px; }
+.feedback { margin-top: 18px; padding: 16px 18px; border-radius: 18px; display: flex; align-items: center; justify-content: space-between; gap: 14px; flex-wrap: wrap; }
+.feedback[hidden] { display: none; }
+.feedback.ok { background: #E3F5F4; color: #0B5753; }
+.feedback.no { background: #FFF3D1; color: #6B4A00; }
+.feedback p { margin: 0; font-weight: 500; font-size: 16px; }
+.qtools { margin-top: 16px; display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
+.hintbox { margin: 0; padding: 12px 16px; border-radius: 14px; background: #FFFFFF; box-shadow: inset 0 0 0 2px var(--gold); font-size: 15px; }
+.hintbox[hidden] { display: none; }
+@media (max-width: 720px) { .qbody { grid-template-columns: 1fr; } .visual { min-height: 200px; } .visual svg { max-width: 200px; } .opt { min-height: 72px; } }
+
+/* Results */
+.results { display: grid; grid-template-columns: minmax(0, 1fr); gap: 18px; text-align: center; justify-items: center; padding-top: 10px; }
+.results .big-stars { display: flex; gap: 10px; }
+.results .big-stars svg { width: 54px; height: 54px; }
+.results .score { font: 800 clamp(40px, 7vw, 64px)/1 var(--display); color: var(--blue); }
+.results p { margin: 0; color: var(--muted); font-size: 17px; }
+.results .actions { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; margin-top: 6px; }
+bdi.math { unicode-bidi: isolate; direction: ltr; white-space: nowrap; }
